@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Código centrado</title>
+    <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+    <div class="layout">
+        <pre><code id="salida"></code></pre>
+        <aside class="reloj" aria-label="Reloj actual">
+            <div class="reloj-analogico" aria-hidden="true">
+                <div id="manecilla-hora" class="manecilla manecilla-hora"></div>
+                <div id="manecilla-minuto" class="manecilla manecilla-minuto"></div>
+                <div id="manecilla-segundo" class="manecilla manecilla-segundo"></div>
+                <div class="centro-reloj"></div>
+            </div>
+            <div id="reloj-fecha" class="reloj-fecha">--/--/----</div>
+            <div id="clima-ciudad" class="clima-ciudad">Configura una ciudad</div>
+            <div id="clima-temp" class="clima-temp">-- °C</div>
+        </aside>
+    </div>
+    <script src="js.js"></script>
+</body>
+</html>
