@@ -28,8 +28,8 @@
         .layout {
             display: flex;
             align-items: stretch;
-            gap: 16px;
-            width: min(1200px, 96vw);
+            gap: 12px;
+            width: min(930px, 92vw);
         }
 
         pre {
@@ -41,9 +41,9 @@
             background: var(--panel);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 20px;
-            line-height: 1.45;
-            font-size: clamp(14px, 1.8vw, 18px);
+            padding: 14px;
+            line-height: 1.3;
+            font-size: clamp(11px, 1.05vw, 13px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
@@ -53,22 +53,22 @@
         }
 
         .reloj {
-            width: 220px;
+            width: 165px;
             background: var(--panel);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 18px 16px;
+            padding: 12px 10px;
             display: grid;
             align-content: center;
             justify-items: center;
-            gap: 10px;
+            gap: 6px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
         .reloj-analogico {
             position: relative;
-            width: 160px;
-            height: 160px;
+            width: 112px;
+            height: 112px;
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.4);
             background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.2));
@@ -85,20 +85,20 @@
         }
 
         .manecilla-hora {
-            width: 6px;
-            height: 42px;
+            width: 4px;
+            height: 29px;
             background: #ffe9b8;
         }
 
         .manecilla-minuto {
-            width: 4px;
-            height: 58px;
+            width: 3px;
+            height: 38px;
             background: #ffd866;
         }
 
         .manecilla-segundo {
-            width: 2px;
-            height: 66px;
+            width: 1.5px;
+            height: 45px;
             background: #ff8b8b;
         }
 
@@ -106,27 +106,27 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            width: 10px;
-            height: 10px;
+            width: 7px;
+            height: 7px;
             background: #fff2cc;
             border-radius: 50%;
             transform: translate(-50%, -50%);
         }
 
         .reloj-fecha {
-            font-size: clamp(12px, 1.5vw, 16px);
+            font-size: clamp(10px, 0.9vw, 12px);
             color: #f0c4c4;
             text-transform: capitalize;
         }
 
         .clima-ciudad {
-            font-size: clamp(12px, 1.5vw, 15px);
+            font-size: clamp(10px, 0.9vw, 12px);
             color: #ffd7d7;
             text-align: center;
         }
 
         .clima-temp {
-            font-size: clamp(16px, 2.4vw, 24px);
+            font-size: clamp(12px, 1.2vw, 15px);
             font-weight: 700;
             color: #8fe7ff;
             letter-spacing: 0.5px;
@@ -228,6 +228,8 @@
             const hora = String(horaNumero).padStart(2, "0");
             const minutos = String(minutoNumero).padStart(2, "0");
             const segundos = String(segundoNumero).padStart(2, "0");
+            const segundosTranscurridos = (horaNumero * 3600) + (minutoNumero * 60) + segundoNumero;
+            const progresoDia = ((segundosTranscurridos / 86400) * 100).toFixed(2);
 
             const texto = [
                 `<span class="code-keyword">import</span> <span class="code-package">java.time.LocalDateTime</span>;`,
@@ -244,6 +246,7 @@
                 `        System.out.<span class="code-func">println</span>(<span class="code-string">\"Hora: \"</span> + hora); <span class="code-comment">// Hora: ${hora}</span>`,
                 `        System.out.<span class="code-func">println</span>(<span class="code-string">\"Minutos: \"</span> + minutos); <span class="code-comment">// Minutos: ${minutos}</span>`,
                 `        System.out.<span class="code-func">println</span>(<span class="code-string">\"Segundos: \"</span> + segundos); <span class="code-comment">// Segundos: ${segundos}</span>`,
+                `        System.out.<span class="code-func">println</span>(<span class="code-string">\"Progreso del dia: \"</span> + progresoDia + <span class="code-string">\"%\"</span>); <span class="code-comment">// Progreso del dia: ${progresoDia}%</span>`,
                 "    }",
                 "}"
             ].join("\n");
